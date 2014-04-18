@@ -1,0 +1,8 @@
+avtenta_rest:
+    type: rest
+    prefix: /api
+    resource: "@AvtentaRestBundle/Resources/config/routes.yml"
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

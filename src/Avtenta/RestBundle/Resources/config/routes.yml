@@ -1,0 +1,5 @@
+avtenta_rest_page:
+    type: rest
+    prefix: /v1
+    resource: Avtenta\RestBundle\Controller\PageController
+    name_prefix: api_1_ # naming collision
