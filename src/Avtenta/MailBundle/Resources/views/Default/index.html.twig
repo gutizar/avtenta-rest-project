@@ -1,0 +1,7 @@
+Hello {{ name }}!
+
+{% for mail in mails %}
+    <ul>
+	<li>({{ mail.uid }}) {{ mail.sender }} @ {{ mail.received|date('dd.MM.yyyy') }}</li>
+    </ul>
+{% endfor %}

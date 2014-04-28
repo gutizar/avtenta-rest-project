@@ -97,3 +97,10 @@ sensio_framework_extra:
         annotations: false
 
 nelmio_api_doc: ~
+
+avtenta_mail:
+    service: imap
+    host: ~
+    port: 993
+    username: ~
+    password: ~

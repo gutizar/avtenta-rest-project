@@ -1,3 +1,13 @@
+avtenta_mail:
+    resource: "@AvtentaMailBundle/Controller/"
+    type:     annotation
+    prefix:   /mail
+
+avtenta_site:
+    resource: "@AvtentaSiteBundle/Controller/"
+    type:     annotation
+    prefix:   /site
+
 avtenta_rest:
     type: rest
     prefix: /api

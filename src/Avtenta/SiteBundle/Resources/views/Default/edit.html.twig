@@ -1,0 +1,42 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Edit page {{ page.id }}{% endblock %}
+
+{% block body %}
+	<h1>Page Form</h1>
+	{{ form_start(edit_form) }}
+	    {{ form_widget(edit_form) }}
+	{{ form_end(edit_form) }}
+
+	<a id="patch" href="#">Patch entity</a>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript">
+		$("a#patch").click(function (event) {
+			event.preventDefault();
+			
+			var values = {};
+			var $form = $("form");
+			var $inputFields = $("form :input");
+
+			$inputFields.each(function() {
+				if (this.name !== "page[body]")
+					values[this.name] = $(this).val();
+			});
+
+			console.log(values);
+
+			$.ajax({
+				type: "PATCH",
+				url: $form.attr("action"),
+				data: values,
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(error) {
+					console.log(error);
+				}
+			});
+		});
+	</script>
+{% endblock %}

@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Avtenta\ModelBundle\AvtentaModelBundle(),
             new Avtenta\RestBundle\AvtentaRestBundle(),
+            new Avtenta\SiteBundle\AvtentaSiteBundle(),
+            new Avtenta\MailBundle\AvtentaMailBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

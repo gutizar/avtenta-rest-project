@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--
+    <parameters>
+        <parameter key="avtenta_mail.example.class">Avtenta\MailBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="avtenta_mail.example" class="%avtenta_mail.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+
+    <parameters>
+        <parameter key="avtenta.manager.mail_class">Avtenta\MailBundle\Manager\MailManager</parameter>
+        <parameter key="avtenta.model.mail_class">Avtenta\MailBundle\Entity\Mail</parameter>
+	<parameter key="avtenta.mail_class">Avtenta\MailBundle\Services\ServerWrapper</parameter>
+	<parameter key="avtenta.mail.command_class">Avtenta\MailBundle\Command\MailImporterCommand</parameter>
+	<parameter key="avtenta.mail.hostname" />
+	<parameter key="avtenta.mail.port" />
+	<parameter key="avtenta.mail.service" />
+	<parameter key="avtenta.mail.username" />
+	<parameter key="avtenta.mail.password" />
+    </parameters>
+
+    <services>
+        <service id="avtenta.manager.mail" class="%avtenta.manager.mail_class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%avtenta.model.mail_class%</argument>
+        </service>
+	<service id="avtenta.mail" class="%avtenta.mail_class%">
+            <argument>%avtenta.mail.hostname%</argument>
+	    <argument>%avtenta.mail.port%</argument>
+	    <argument>%avtenta.mail.service%</argument>
+	    <argument>%avtenta.mail.username%</argument>
+	    <argument>%avtenta.mail.password%</argument>
+        </service>
+	<service id="avtenta.mail.importer" class="%avtenta.mail.command_class%">
+	    <argument type="service" id="avtenta.manager.mail" />
+	    <argument type="service" id="avtenta.mail" />
+	    <tag name="console.command" />
+	</service>
+    </services>
+
+</container>
