@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Avtenta\RestBundle\AvtentaRestBundle(),
             new Avtenta\SiteBundle\AvtentaSiteBundle(),
             new Avtenta\MailBundle\AvtentaMailBundle(),
+	    new Exercise\HTMLPurifierBundle\ExerciseHTMLPurifierBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

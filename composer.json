@@ -25,7 +25,8 @@
         "nelmio/api-doc-bundle": "@dev",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "liip/functional-test-bundle":"dev-master",
-        "tedivm/fetch": "0.5.*"
+        "tedivm/fetch": "0.5.*",
+	"exercise/htmlpurifier-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

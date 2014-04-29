@@ -23,6 +23,7 @@
         <parameter key="avtenta.model.mail_class">Avtenta\MailBundle\Entity\Mail</parameter>
 	<parameter key="avtenta.mail_class">Avtenta\MailBundle\Services\ServerWrapper</parameter>
 	<parameter key="avtenta.mail.command_class">Avtenta\MailBundle\Command\MailImporterCommand</parameter>
+	<parameter key="avtenta.mail.parser_class">Avtenta\MailBundle\Command\HtmlParserCommand</parameter>
 	<parameter key="avtenta.mail.hostname" />
 	<parameter key="avtenta.mail.port" />
 	<parameter key="avtenta.mail.service" />
@@ -45,6 +46,10 @@
 	<service id="avtenta.mail.importer" class="%avtenta.mail.command_class%">
 	    <argument type="service" id="avtenta.manager.mail" />
 	    <argument type="service" id="avtenta.mail" />
+	    <tag name="console.command" />
+	</service>
+	<service id="avtenta.mail.parser" class="%avtenta.mail.parser_class%">
+	    <argument type="service" id="exercise_html_purifier.custom" />
 	    <tag name="console.command" />
 	</service>
     </services>
